@@ -7,13 +7,12 @@ import os
 
 rollno = input('Rollno: ')
 passwd = getpass()
-session_month = input('Enter the month of session you want to check results for (In the format- yyyy/m, for example- 2021/1 for the January 2021 session): ')
 
 print('Logging in...')
 login_url ='https://misreg.nitt.edu/NITTSTUDENT/userLoginAction'
 login_headers = {
     'Host': 'misreg.nitt.edu',
-    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0',
+    'User-Agent': 'Mozilla/5.0 Gecko/20100101 Firefox/94.0',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
     'Accept-Language': 'en-US,en;q=0.5',
     'Accept-Encoding': 'gzip, deflate, br',
@@ -38,10 +37,12 @@ for key, value in login_resp.headers.items():
 
 cookie = cookie.replace('; Path=/NITTSTUDENT; Secure', '')
 
-result_url = f'https://misreg.nitt.edu/NITTSTUDENT/displayresults?sessionName={session_month}'
+session = input('Enter the session you want to check results for \n(In the format- yyyy/n, n is 1 for odd sem and 3 for even sem; Eg- 2021/1 for January 2021): ')
+
+result_url = f'https://misreg.nitt.edu/NITTSTUDENT/displayresults?sessionName={session}'
 result_headers = {
     'Host': 'misreg.nitt.edu',
-    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0',
+    'User-Agent': 'Mozilla/5.0 Gecko/20100101 Firefox/94.0',
     'Accept': '*/*',
     'Accept-Language': 'en-US,en;q=0.5',
     'Accept-Encoding': 'gzip, deflate, br',
@@ -56,9 +57,9 @@ result_headers = {
 }
 html_resp = requests.get(result_url, headers=result_headers)
 
-print(f'Downloading result for session {session_month} in result.html...')
+print(f'Downloading result for session {session} in result.html...')
 file = open(f'result.html', 'a')
-file.write(f'<h1>{session_month}<h1>')
+file.write(f'<h1>{session}<h1>')
 file.write(html_resp.text)
 file.close()
 
