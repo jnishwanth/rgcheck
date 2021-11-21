@@ -2,7 +2,13 @@
 A simple CLI tool using HTTP requests to fetch grades for each semeter from the [NITT website](https://misreg.nitt.edu/NITTSTUDENT).
 
 ## Usage
-Clone the repository and simply run the main.py file.
+Simply clone the repository and run the main.py file.
+
+``` shell
+# git clone https://github.com/jnishwanth/rgcheck.git
+# cd rgcheck
+# python main.py
+```
 
 ## Dependencies
 - python
