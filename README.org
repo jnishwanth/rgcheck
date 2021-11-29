@@ -1,0 +1,18 @@
+#+TITLE: rgcheck
+
+* What is it?
+A simple CLI tool using HTTP requests to fetch grades for each semeter from the [[https://misreg.nitt.edu/NITTSTUDENT][NITT Student Portal]].
+
+* Usage
+Simply clone the repository and run the main.py file.
+
+#+BEGIN_SRC [shell-mode]
+# git clone https://github.com/jnishwanth/rgcheck.git
+# cd rgcheck
+# python main.py
+#+END_SRC
+
+* Dependencies
+- python
+- python-requests
+- any web browser
