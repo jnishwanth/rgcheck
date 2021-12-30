@@ -37,7 +37,7 @@ for key, value in login_resp.headers.items():
 
 cookie = cookie.replace('; Path=/NITTSTUDENT; Secure', '')
 
-session = input('Enter the session you want to check results for \n(In the format- yyyy/n, n is 1 for odd sem and 3 for even sem; Eg- 2021/1 for January 2021): ')
+session = input('Enter the session you want to check results for \n(In the format- yyyy/n, n is 1 for jan and 3 for june; Eg- 2021/1 for January 2021): ')
 
 result_url = f'https://misreg.nitt.edu/NITTSTUDENT/displayresults?sessionName={session}'
 result_headers = {
